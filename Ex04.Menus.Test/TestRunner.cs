@@ -49,7 +49,7 @@ namespace Ex04.Menus.Test
             // Version and capitals item and its sub items
             InterfaceSubMenu versionAndCapitalsItem = new InterfaceSubMenu("Version and Capitals");
             InterfaceActionMenuItem actionItemShowVersion = new InterfaceActionMenuItem("Show Version", new ShowVersion());
-            InterfaceActionMenuItem countCapitalsItem = new InterfaceActionMenuItem("Count Spaces", new CountCapitals());
+            InterfaceActionMenuItem countCapitalsItem = new InterfaceActionMenuItem("Count Capitals", new CountCapitals());
             // show date/time item and its sub items
             InterfaceSubMenu dateTimeItem = new InterfaceSubMenu("Show Date/Time");
             InterfaceActionMenuItem actionItemShowDate = new InterfaceActionMenuItem("Show Date", new ShowDate());
