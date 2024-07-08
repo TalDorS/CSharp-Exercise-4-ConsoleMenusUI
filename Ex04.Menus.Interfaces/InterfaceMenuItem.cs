@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    public abstract class MenuItem 
+    public abstract class InterfaceMenuItem 
     {
         private readonly string r_Title;
-        private MenuItem m_Parent = null;
+        private InterfaceMenuItem m_Parent = null;
 
         public string Title
         {
@@ -18,11 +18,11 @@ namespace Ex04.Menus.Interfaces
                 return r_Title;
             }
         }
-        public MenuItem(string i_Title)
+        public InterfaceMenuItem(string i_Title)
         {
             r_Title = i_Title;
         }
-        public MenuItem Parent
+        public InterfaceMenuItem Parent
         {
             get
             {
@@ -41,7 +41,7 @@ namespace Ex04.Menus.Interfaces
 
         internal bool IsActionMenuItem()
         {
-            return this is ActionMenuItem;
+            return this is InterfaceActionMenuItem;
         }
         internal abstract void ExecuteOnClick();
     }

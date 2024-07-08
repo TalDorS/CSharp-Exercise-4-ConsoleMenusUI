@@ -39,11 +39,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionMenuItem.cs" />
+    <Compile Include="InterfaceActionMenuItem.cs" />
     <Compile Include="IMenuObserver.cs" />
-    <Compile Include="MainMenu.cs" />
-    <Compile Include="MenuItem.cs" />
-    <Compile Include="SubMenu.cs" />
+    <Compile Include="InterfaceMainMenu.cs" />
+    <Compile Include="InterfaceMenuItem.cs" />
+    <Compile Include="InterfaceSubMenu.cs" />
     <Compile Include="ValueOutOfRangeException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

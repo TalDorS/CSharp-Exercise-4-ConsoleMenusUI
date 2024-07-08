@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class SubMenu: MenuItem
+    public class InterfaceSubMenu: InterfaceMenuItem
     {
-        private readonly List<MenuItem> r_SubMenu;
+        private readonly List<InterfaceMenuItem> r_SubMenu;
         private int m_NumOfSubItems;
 
         public int NumOfSubItems
@@ -24,13 +24,13 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        public SubMenu(string i_Title) : base(i_Title)
+        public InterfaceSubMenu(string i_Title) : base(i_Title)
         {
-            r_SubMenu = new List<MenuItem>();
+            r_SubMenu = new List<InterfaceMenuItem>();
             m_NumOfSubItems = 0;
         }
 
-        public void AddSubMenuItem(MenuItem i_MenuItem)
+        public void AddSubMenuItem(InterfaceMenuItem i_MenuItem)
         {
             i_MenuItem.Parent = this;
             r_SubMenu.Add(i_MenuItem);
@@ -44,7 +44,7 @@ namespace Ex04.Menus.Interfaces
         }
         private int showSubMenuItem(int i_Index)
         {
-            foreach (MenuItem item in r_SubMenu)
+            foreach (InterfaceMenuItem item in r_SubMenu)
             {
                 i_Index++;
                 Console.WriteLine("{0} -> {1}", i_Index, item.Title);
@@ -64,7 +64,7 @@ namespace Ex04.Menus.Interfaces
             Console.Write(Environment.NewLine);
         }
 
-        public MenuItem getMenuItemByIndex(int index)
+        public InterfaceMenuItem getMenuItemByIndex(int index)
         {
             return r_SubMenu[index - 1];
         }

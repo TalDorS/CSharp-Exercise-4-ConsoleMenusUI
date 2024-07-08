@@ -7,29 +7,29 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class MainMenu
+    public class InterfaceMainMenu
     {
         private const int k_GoBackOrExit = 0;
-        private SubMenu m_MainMenu;
+        private InterfaceSubMenu m_MainMenu;
 
-        public MainMenu(string i_ItemTitle)
+        public InterfaceMainMenu(string i_ItemTitle)
         {
-            m_MainMenu = new SubMenu(i_ItemTitle);
+            m_MainMenu = new InterfaceSubMenu(i_ItemTitle);
         }
 
-        public void AddMainMenuItem(MenuItem i_MenuItem)
+        public void AddMainMenuItem(InterfaceMenuItem i_MenuItem)
         {
             m_MainMenu.AddSubMenuItem(i_MenuItem);
         }
 
-        private bool isUserInputInRange(int i_Input, MenuItem i_MenuItem)
+        private bool isUserInputInRange(int i_Input, InterfaceMenuItem i_MenuItem)
         {
-            return (i_Input >= 0 && i_Input <= (i_MenuItem as SubMenu).NumOfSubItems);
+            return (i_Input >= 0 && i_Input <= (i_MenuItem as InterfaceSubMenu).NumOfSubItems);
         }
 
         public void Show()
         {
-            MenuItem currentMenuItem = m_MainMenu;
+            InterfaceMenuItem currentMenuItem = m_MainMenu;
             while (currentMenuItem != null)
             {
                 currentMenuItem.ExecuteOnClick();
@@ -51,7 +51,7 @@ namespace Ex04.Menus.Interfaces
                 }
             }
         }
-        private void goBackIfAction(ref MenuItem i_CurrentMenuItem)
+        private void goBackIfAction(ref InterfaceMenuItem i_CurrentMenuItem)
         {
             if (i_CurrentMenuItem.IsActionMenuItem())
             {
@@ -60,14 +60,14 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        private void goBack(ref MenuItem i_CurrentMenuItem)
+        private void goBack(ref InterfaceMenuItem i_CurrentMenuItem)
         {
             i_CurrentMenuItem = i_CurrentMenuItem.Parent;
         }
 
-        private void updateMenuItemsFromUser(ref MenuItem i_CurrentMenuItem)
+        private void updateMenuItemsFromUser(ref InterfaceMenuItem i_CurrentMenuItem)
         {
-            Console.WriteLine("Enter your request: (1-{0} or press '0' to {1})", (i_CurrentMenuItem as SubMenu).NumOfSubItems, (i_CurrentMenuItem as SubMenu).getLastMenuOption());
+            Console.WriteLine("Enter your request: (1-{0} or press '0' to {1})", (i_CurrentMenuItem as InterfaceSubMenu).NumOfSubItems, (i_CurrentMenuItem as InterfaceSubMenu).getLastMenuOption());
 
             if (int.TryParse(Console.ReadLine(), out int userInput))
             {
@@ -91,11 +91,11 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        private void goToUserChoice(ref MenuItem i_CurrentMenuItem, int i_UserInput)
+        private void goToUserChoice(ref InterfaceMenuItem i_CurrentMenuItem, int i_UserInput)
         {
-            if (i_CurrentMenuItem is SubMenu)
+            if (i_CurrentMenuItem is InterfaceSubMenu)
             {
-                i_CurrentMenuItem = (i_CurrentMenuItem as SubMenu).getMenuItemByIndex(i_UserInput);
+                i_CurrentMenuItem = (i_CurrentMenuItem as InterfaceSubMenu).getMenuItemByIndex(i_UserInput);
             }
         }
 
