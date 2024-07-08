@@ -22,7 +22,7 @@ namespace Ex04.Menus.Interfaces
             m_MainMenu.AddSubMenuItem(i_MenuItem);
         }
 
-        private bool isUerInputInRange(int i_Input, MenuItem i_MenuItem)
+        private bool isUserInputInRange(int i_Input, MenuItem i_MenuItem)
         {
             return (i_Input >= 0 && i_Input <= (i_MenuItem as SubMenu).NumOfSubItems);
         }
@@ -53,7 +53,7 @@ namespace Ex04.Menus.Interfaces
         }
         private void goBackIfAction(ref MenuItem i_CurrentMenuItem)
         {
-            if (i_CurrentMenuItem is ActionMenuItem)
+            if (i_CurrentMenuItem.IsActionMenuItem())
             {
                 goBack(ref i_CurrentMenuItem);
                 i_CurrentMenuItem.ExecuteOnClick();
@@ -71,7 +71,7 @@ namespace Ex04.Menus.Interfaces
 
             if (int.TryParse(Console.ReadLine(), out int userInput))
             {
-                if (!isUerInputInRange(userInput, i_CurrentMenuItem))
+                if (!isUserInputInRange(userInput, i_CurrentMenuItem))
                 {
                     throw new ValueOutOfRangeException(0,2);
                 }

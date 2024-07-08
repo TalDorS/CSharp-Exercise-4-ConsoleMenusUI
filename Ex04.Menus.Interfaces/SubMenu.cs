@@ -64,6 +64,11 @@ namespace Ex04.Menus.Interfaces
             Console.Write(Environment.NewLine);
         }
 
+        public MenuItem getMenuItemByIndex(int index)
+        {
+            return r_SubMenu[index - 1];
+        }
+
         public string getLastMenuOption()
         {
             string lastMenuOption;
