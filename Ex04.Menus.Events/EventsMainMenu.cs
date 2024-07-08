@@ -9,24 +9,24 @@ namespace Ex04.Menus.Events
 {
     public class EventsMainMenu
     {
-        private EventsMenuItem m_MainMenuItem;
+        private EventsMenuItem m_CurrentMenuItem;
         private const int k_GoBackOrExitChoice = 0;
 
         public EventsMainMenu(string i_Title)
         {
-            m_MainMenuItem = new EventsMenuItem(i_Title);
+            m_CurrentMenuItem = new EventsMenuItem(i_Title);
         }
 
         public void AddMenuItem(EventsMenuItem i_MenuItem)
         {
-            m_MainMenuItem.AddSubMenuItem(i_MenuItem);
+            m_CurrentMenuItem.AddSubMenuItem(i_MenuItem);
         }
 
         public void Show()
         {
-            while (m_MainMenuItem != null)
+            while (m_CurrentMenuItem != null)
             {
-                m_MainMenuItem.DisplayMenu();
+                m_CurrentMenuItem.DisplayMenu();
                 try
                 {
                     getMenuItemFromUser();
@@ -38,9 +38,9 @@ namespace Ex04.Menus.Events
                     Console.ReadLine();
                 }
 
-                if(m_MainMenuItem != null)
+                if(m_CurrentMenuItem != null)
                 {
-                    m_MainMenuItem.Execute();
+                    m_CurrentMenuItem.Execute();
                 }
             }
         }
@@ -58,16 +58,16 @@ namespace Ex04.Menus.Events
 
             if (userInput == k_GoBackOrExitChoice) 
             {
-                m_MainMenuItem = m_MainMenuItem.Parent;
+                m_CurrentMenuItem = m_CurrentMenuItem.Parent;
             }
             else
             {
-                if(userInput >= 0 && (userInput - 1) < m_MainMenuItem.SubMenuItems.Count)
+                if(userInput >= 0 && (userInput - 1) < m_CurrentMenuItem.SubMenuItems.Count)
                 {
-                    nextItem = m_MainMenuItem.SubMenuItems[userInput - 1];
+                    nextItem = m_CurrentMenuItem.SubMenuItems[userInput - 1];
                     if (nextItem.SubMenuItems.Count != 0)
                     {
-                        m_MainMenuItem = nextItem;
+                        m_CurrentMenuItem = nextItem;
                     }
                     else
                     {
@@ -79,7 +79,7 @@ namespace Ex04.Menus.Events
                 }
                 else
                 {
-                    throw new ValueOutOfRangeException(0, m_MainMenuItem.SubMenuItems.Count);
+                    throw new ValueOutOfRangeException(0, m_CurrentMenuItem.SubMenuItems.Count);
                 }
             }
         }

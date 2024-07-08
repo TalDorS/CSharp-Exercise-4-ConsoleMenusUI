@@ -9,7 +9,7 @@ namespace Ex04.Menus.Interfaces
     public abstract class InterfaceMenuItem 
     {
         private readonly string r_Title;
-        private InterfaceMenuItem m_Parent = null;
+        private InterfaceMenuItem m_Parent;
 
         public string Title
         {

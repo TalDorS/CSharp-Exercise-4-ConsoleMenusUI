@@ -53,7 +53,7 @@ namespace Ex04.Menus.Test
         {
             public void ActivateUserChoice()
             {
-                Console.WriteLine(String.Format("Current Time: {0}", DateTime.Now.ToLongTimeString()));
+                Console.WriteLine(String.Format("Current Time: {0}", DateTime.Now.ToShortTimeString()));
                 WaitForUserToPressKeyToContinue.PromptToPressKey();
             }
         }
