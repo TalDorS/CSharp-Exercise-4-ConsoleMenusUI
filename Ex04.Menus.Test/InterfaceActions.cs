@@ -44,7 +44,7 @@ namespace Ex04.Menus.Test
         {
             public void ActivateUserChoice()
             {
-                Console.WriteLine($"Current Date: {DateTime.Now.ToShortDateString()}");
+                Console.WriteLine(String.Format("Current Date: {0}", DateTime.Now.ToShortDateString()));
                 WaitForUserToPressKeyToContinue.PromptToPressKey();
             }
         }
