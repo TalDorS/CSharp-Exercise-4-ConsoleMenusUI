@@ -10,31 +10,31 @@ namespace Ex04.Menus.Interfaces
     public class InterfaceSubMenu: InterfaceMenuItem
     {
         private readonly List<InterfaceMenuItem> r_SubMenu;
-        private int m_NumOfSubItems;
+        private int m_NumOfItemsInSubMenu;
 
         public int NumOfSubItems
         {
             get
             {
-                return m_NumOfSubItems;
+                return m_NumOfItemsInSubMenu;
             }
             private set
             {
-                m_NumOfSubItems = value;
+                m_NumOfItemsInSubMenu = value;
             }
         }
 
         public InterfaceSubMenu(string i_Title) : base(i_Title)
         {
             r_SubMenu = new List<InterfaceMenuItem>();
-            m_NumOfSubItems = 0;
+            m_NumOfItemsInSubMenu = 0;
         }
 
         public void AddSubMenuItem(InterfaceMenuItem i_MenuItem)
         {
             i_MenuItem.Parent = this;
             r_SubMenu.Add(i_MenuItem);
-            m_NumOfSubItems++;
+            m_NumOfItemsInSubMenu++;
         }
 
         internal override void ExecuteOnClick()
@@ -42,6 +42,7 @@ namespace Ex04.Menus.Interfaces
             Console.Clear();
             showSubMenu();
         }
+
         private int showSubMenuItem(int i_Index)
         {
             foreach (InterfaceMenuItem item in r_SubMenu)
@@ -52,6 +53,7 @@ namespace Ex04.Menus.Interfaces
 
             return i_Index;
         }
+
         public void showSubMenu()
         {
             string lastMenuOption = getLastMenuOption();
@@ -72,6 +74,7 @@ namespace Ex04.Menus.Interfaces
         public string getLastMenuOption()
         {
             string lastMenuOption;
+
             if (IsMainMenu())
             {
                 lastMenuOption = "Exit";

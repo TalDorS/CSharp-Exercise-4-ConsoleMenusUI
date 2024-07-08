@@ -12,9 +12,9 @@ namespace Ex04.Menus.Interfaces
         private const int k_GoBackOrExit = 0;
         private InterfaceSubMenu m_MainMenu;
 
-        public InterfaceMainMenu(string i_ItemTitle)
+        public InterfaceMainMenu(string i_Title)
         {
-            m_MainMenu = new InterfaceSubMenu(i_ItemTitle);
+            m_MainMenu = new InterfaceSubMenu(i_Title);
         }
 
         public void AddMainMenuItem(InterfaceMenuItem i_MenuItem)
@@ -22,9 +22,9 @@ namespace Ex04.Menus.Interfaces
             m_MainMenu.AddSubMenuItem(i_MenuItem);
         }
 
-        private bool isUserInputInRange(int i_Input, InterfaceMenuItem i_MenuItem)
+        private bool isUserInputInRange(int i_InputFromUser, InterfaceMenuItem i_MenuItem)
         {
-            return (i_Input >= 0 && i_Input <= (i_MenuItem as InterfaceSubMenu).NumOfSubItems);
+            return (i_InputFromUser >= 0 && i_InputFromUser <= (i_MenuItem as InterfaceSubMenu).NumOfSubItems);
         }
 
         public void Show()
@@ -34,7 +34,6 @@ namespace Ex04.Menus.Interfaces
             {
                 currentMenuItem.ExecuteOnClick();
                 goBackIfAction(ref currentMenuItem);
-
                 try
                 {
                     updateMenuItemsFromUser(ref currentMenuItem);
@@ -42,12 +41,12 @@ namespace Ex04.Menus.Interfaces
                 catch (ValueOutOfRangeException valueOutOfRange)
                 {
                     Console.WriteLine(valueOutOfRange.Message);
-                    promptUserToPressEnterToContinue();
+                    promptUserToPressKeyToContinue();
                 }
                 catch (FormatException fromatException)
                 {
                     Console.WriteLine(fromatException.Message);
-                    promptUserToPressEnterToContinue();
+                    promptUserToPressKeyToContinue();
                 }
             }
         }
@@ -68,7 +67,6 @@ namespace Ex04.Menus.Interfaces
         private void updateMenuItemsFromUser(ref InterfaceMenuItem i_CurrentMenuItem)
         {
             Console.WriteLine("Enter your request: (1-{0} or press '0' to {1})", (i_CurrentMenuItem as InterfaceSubMenu).NumOfSubItems, (i_CurrentMenuItem as InterfaceSubMenu).getLastMenuOption());
-
             if (int.TryParse(Console.ReadLine(), out int userInput))
             {
                 if (!isUserInputInRange(userInput, i_CurrentMenuItem))
@@ -82,6 +80,7 @@ namespace Ex04.Menus.Interfaces
                 }
                 else
                 {
+                    Console.Clear();
                     goToUserChoice(ref i_CurrentMenuItem, userInput);
                 }
             }
@@ -99,10 +98,10 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        private void promptUserToPressEnterToContinue()
+        private void promptUserToPressKeyToContinue()
         {
-            Console.WriteLine("Press 'Enter' to continue");
-            Console.ReadLine();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
             Console.Clear();
         }
     }

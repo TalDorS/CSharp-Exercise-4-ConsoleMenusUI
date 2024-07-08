@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventsActions.cs" />
+    <Compile Include="InterfaceActions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="TestRunner.cs" />
   </ItemGroup>

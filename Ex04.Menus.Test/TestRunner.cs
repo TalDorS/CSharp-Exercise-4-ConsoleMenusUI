@@ -1,11 +1,13 @@
 ﻿using Ex04.Menus.Events;
+using Ex04.Menus.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Ex04.Menus.Events.EventsMainMenu;
-using static Ex04.Menus.Events.EventsMenuItem;
+using static Ex04.Menus.Test.InterfaceActions;
+
+
 
 namespace Ex04.Menus.Test
 {
@@ -13,8 +15,9 @@ namespace Ex04.Menus.Test
     {
         public static void RunTest()
         {
+            InterfaceMainMenu interfaceMainMenu = initializeAndGetInterfaceMainMenu();
             EventsMainMenu eventsMainMenu = initializeAndGetEventsMainMenu();
-
+            interfaceMainMenu.Show();
             eventsMainMenu.Show();
         }
 
@@ -27,9 +30,8 @@ namespace Ex04.Menus.Test
             EventsMenuItem countCapitalsItem = new EventsMenuItem("Count Capitals", EventsActions.CountCapitals);
             // show date/time item and its sub items
             EventsMenuItem dateTimeItem = new EventsMenuItem("Show Date/Time");
-            EventsMenuItem showTimeItem = new EventsMenuItem("Show Time", EventsActions.ShowTime);
             EventsMenuItem showDateItem = new EventsMenuItem("Show Date", EventsActions.ShowDate);
-
+            EventsMenuItem showTimeItem = new EventsMenuItem("Show Time", EventsActions.ShowTime);
             // Add items to their menus
             versionAndCapitalsItem.AddSubMenuItem(showVersionItem);
             versionAndCapitalsItem.AddSubMenuItem(countCapitalsItem);
@@ -39,6 +41,28 @@ namespace Ex04.Menus.Test
             eventsMainMenu.AddMenuItem(dateTimeItem);
 
             return eventsMainMenu;
+        }
+
+        private static InterfaceMainMenu initializeAndGetInterfaceMainMenu() 
+        {
+            InterfaceMainMenu InterfceMainMenu = new InterfaceMainMenu("Interface Main Menu");
+            // Version and capitals item and its sub items
+            InterfaceSubMenu versionAndCapitalsItem = new InterfaceSubMenu("Version and Capitals");
+            InterfaceActionMenuItem actionItemShowVersion = new InterfaceActionMenuItem("Show Version", new ShowVersion());
+            InterfaceActionMenuItem countCapitalsItem = new InterfaceActionMenuItem("Count Spaces", new CountCapitals());
+            // show date/time item and its sub items
+            InterfaceSubMenu dateTimeItem = new InterfaceSubMenu("Show Date/Time");
+            InterfaceActionMenuItem actionItemShowDate = new InterfaceActionMenuItem("Show Date", new ShowDate());
+            InterfaceActionMenuItem actionItemShowTime = new InterfaceActionMenuItem("Show Time", new ShowTime());
+            // Add items to their menus
+            versionAndCapitalsItem.AddSubMenuItem(actionItemShowVersion);
+            versionAndCapitalsItem.AddSubMenuItem(countCapitalsItem);
+            dateTimeItem.AddSubMenuItem(actionItemShowDate);
+            dateTimeItem.AddSubMenuItem(actionItemShowTime);
+            InterfceMainMenu.AddMainMenuItem(versionAndCapitalsItem);
+            InterfceMainMenu.AddMainMenuItem(dateTimeItem);
+
+            return InterfceMainMenu;
         }
     }
 }

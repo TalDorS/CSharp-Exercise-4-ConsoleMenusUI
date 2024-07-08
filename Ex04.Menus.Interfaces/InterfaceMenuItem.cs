@@ -18,10 +18,12 @@ namespace Ex04.Menus.Interfaces
                 return r_Title;
             }
         }
+
         public InterfaceMenuItem(string i_Title)
         {
             r_Title = i_Title;
         }
+
         public InterfaceMenuItem Parent
         {
             get
@@ -43,6 +45,7 @@ namespace Ex04.Menus.Interfaces
         {
             return this is InterfaceActionMenuItem;
         }
+
         internal abstract void ExecuteOnClick();
     }
 }
