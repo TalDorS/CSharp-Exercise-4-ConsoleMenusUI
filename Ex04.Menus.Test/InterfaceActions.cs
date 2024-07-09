@@ -13,7 +13,7 @@ namespace Ex04.Menus.Test
         {
             public void ActivateUserChoice()
             {
-                Console.WriteLine("App Version: 24.2.4.9504");
+                EventsActions.ShowVersion();
                 WaitForUserToPressKeyToContinue.PromptToPressKey();
             }
         }
@@ -22,20 +22,7 @@ namespace Ex04.Menus.Test
         {
             public void ActivateUserChoice()
             {
-                string sentence = string.Empty;
-                int capitalCounter = 0;
-
-                Console.Write("Please enter your sentence: ");
-                sentence = Console.ReadLine();
-                foreach (char character in sentence)
-                {
-                    if (char.IsUpper(character))
-                    {
-                        capitalCounter++;
-                    }
-                }
-
-                Console.WriteLine(String.Format("There are {0} capital letters in your sentence.", capitalCounter));
+                EventsActions.CountCapitals();
                 WaitForUserToPressKeyToContinue.PromptToPressKey();
             }
         }
@@ -44,7 +31,7 @@ namespace Ex04.Menus.Test
         {
             public void ActivateUserChoice()
             {
-                Console.WriteLine(String.Format("Current Date: {0}", DateTime.Now.ToShortDateString()));
+                EventsActions.ShowDate();
                 WaitForUserToPressKeyToContinue.PromptToPressKey();
             }
         }
@@ -53,7 +40,7 @@ namespace Ex04.Menus.Test
         {
             public void ActivateUserChoice()
             {
-                Console.WriteLine(String.Format("Current Time: {0}", DateTime.Now.ToLongTimeString()));
+                EventsActions.ShowTime();
                 WaitForUserToPressKeyToContinue.PromptToPressKey();
             }
         }

@@ -38,7 +38,7 @@ namespace Ex04.Menus.Test
 
         public static void ShowDate()
         {
-            Console.WriteLine($"Current Date: {DateTime.Now.ToShortDateString()}");
+            Console.WriteLine(string.Format("Current Date: {0}", DateTime.Now.ToShortDateString()));
         }
     }
 }

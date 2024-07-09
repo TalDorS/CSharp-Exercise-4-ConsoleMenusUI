@@ -32,6 +32,7 @@ namespace Ex04.Menus.Test
             EventsMenuItem dateTimeItem = new EventsMenuItem("Show Date/Time");
             EventsMenuItem showTimeItem = new EventsMenuItem("Show Time", EventsActions.ShowTime);
             EventsMenuItem showDateItem = new EventsMenuItem("Show Date", EventsActions.ShowDate);
+
             // Add items to their menus
             versionAndCapitalsItem.AddSubMenuItem(showVersionItem);
             versionAndCapitalsItem.AddSubMenuItem(countCapitalsItem);
@@ -54,6 +55,7 @@ namespace Ex04.Menus.Test
             InterfaceSubMenu dateTimeItem = new InterfaceSubMenu("Show Date/Time");
             InterfaceActionMenuItem actionItemShowTime = new InterfaceActionMenuItem("Show Time", new ShowTime());
             InterfaceActionMenuItem actionItemShowDate = new InterfaceActionMenuItem("Show Date", new ShowDate());
+
             // Add items to their menus
             versionAndCapitalsItem.AddSubMenuItem(actionItemShowVersion);
             versionAndCapitalsItem.AddSubMenuItem(countCapitalsItem);

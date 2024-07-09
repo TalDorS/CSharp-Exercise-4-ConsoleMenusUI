@@ -52,8 +52,8 @@ namespace Ex04.Menus.Interfaces
             string lastMenuOption = getLastMenuOption();
             int menuOptionIndex = 0;
 
-            Console.WriteLine("**{0}**", Title);
-            Console.WriteLine("-----------------------");
+            Console.WriteLine(string.Format(@"**{0}**
+-----------------------", Title));
             menuOptionIndex = showSubMenuItem(menuOptionIndex);
             Console.WriteLine("0 -> {0}", lastMenuOption);
             Console.Write(Environment.NewLine);
