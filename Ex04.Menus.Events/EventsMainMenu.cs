@@ -48,10 +48,10 @@ namespace Ex04.Menus.Events
         private void getMenuItemFromUser()
         {
             string input = Console.ReadLine();
-            bool isSuccesfulParsing = int.TryParse(input, out int userInput);
+            bool isSuccessfulParsing = int.TryParse(input, out int userInput);
             EventsMenuItem nextItem = null;
 
-            if (!isSuccesfulParsing)
+            if (!isSuccessfulParsing)
             {
                 throw new FormatException("Invalid input, the input must be a number.");
             }

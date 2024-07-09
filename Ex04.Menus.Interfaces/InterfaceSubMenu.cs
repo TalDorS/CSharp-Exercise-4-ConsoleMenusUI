@@ -33,7 +33,7 @@ namespace Ex04.Menus.Interfaces
         internal override void MenuExecuteHandler()
         {
             Console.Clear();
-            showSubMenu();
+            ShowSubMenu();
         }
 
         private int showSubMenuItem(int i_Index)
@@ -47,9 +47,9 @@ namespace Ex04.Menus.Interfaces
             return i_Index;
         }
 
-        public void showSubMenu()
+        public void ShowSubMenu()
         {
-            string lastMenuOption = getLastMenuOption();
+            string lastMenuOption = GetLastMenuOption();
             int menuOptionIndex = 0;
 
             Console.WriteLine(string.Format(@"**{0}**
@@ -64,7 +64,7 @@ namespace Ex04.Menus.Interfaces
             return r_SubMenu[index - 1];
         }
 
-        public string getLastMenuOption()
+        public string GetLastMenuOption()
         {
             string lastMenuOption;
 

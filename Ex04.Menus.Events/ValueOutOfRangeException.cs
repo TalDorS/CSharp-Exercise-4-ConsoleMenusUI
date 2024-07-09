@@ -11,7 +11,7 @@ namespace Ex04.Menus.Events
         private float m_MaxValue;
         private float m_MinValue;
 
-        public ValueOutOfRangeException(float i_MinValue, float i_MaxValue) : base(string.Format("Value out of range exception has occured. The valid range of values is {0} to {1}", i_MinValue, i_MaxValue))
+        public ValueOutOfRangeException(float i_MinValue, float i_MaxValue) : base(string.Format("Value out of range exception has occurred. The valid range of values is {0} to {1}", i_MinValue, i_MaxValue))
         {
             m_MaxValue = i_MaxValue;
             m_MinValue = i_MinValue;
