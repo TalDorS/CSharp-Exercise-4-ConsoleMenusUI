@@ -79,6 +79,5 @@ namespace Ex04.Menus.Interfaces
             
             return lastMenuOption;
         }
-
     }
 }
