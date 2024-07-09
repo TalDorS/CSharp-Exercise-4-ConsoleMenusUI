@@ -10,31 +10,24 @@ namespace Ex04.Menus.Interfaces
     public class InterfaceSubMenu: InterfaceMenuItem
     {
         private readonly List<InterfaceMenuItem> r_SubMenu;
-        private int m_NumOfItemsInSubMenu;
 
-        public int NumOfSubItems
+        public List<InterfaceMenuItem> SubMenu
         {
             get
             {
-                return m_NumOfItemsInSubMenu;
-            }
-            private set
-            {
-                m_NumOfItemsInSubMenu = value;
+                return r_SubMenu;
             }
         }
 
         public InterfaceSubMenu(string i_Title) : base(i_Title)
         {
             r_SubMenu = new List<InterfaceMenuItem>();
-            m_NumOfItemsInSubMenu = 0;
         }
 
         public void AddSubMenuItem(InterfaceMenuItem i_MenuItem)
         {
             i_MenuItem.Parent = this;
             r_SubMenu.Add(i_MenuItem);
-            m_NumOfItemsInSubMenu++;
         }
 
         internal override void ExecuteOnClick()

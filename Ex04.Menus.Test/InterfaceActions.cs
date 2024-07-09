@@ -13,7 +13,7 @@ namespace Ex04.Menus.Test
         {
             public void ActivateUserChoice()
             {
-                Console.WriteLine("App Version: 23.2.4.9805");
+                Console.WriteLine("App Version: 24.2.4.9504");
                 WaitForUserToPressKeyToContinue.PromptToPressKey();
             }
         }

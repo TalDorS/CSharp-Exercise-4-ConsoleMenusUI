@@ -24,7 +24,7 @@ namespace Ex04.Menus.Interfaces
 
         private bool isUserInputInRange(int i_InputFromUser, InterfaceMenuItem i_MenuItem)
         {
-            return (i_InputFromUser >= 0 && i_InputFromUser <= (i_MenuItem as InterfaceSubMenu).NumOfSubItems);
+            return (i_InputFromUser >= 0 && i_InputFromUser <= (i_MenuItem as InterfaceSubMenu).SubMenu.Count);
         }
 
         public void Show()
@@ -66,12 +66,12 @@ namespace Ex04.Menus.Interfaces
 
         private void updateMenuItemsFromUser(ref InterfaceMenuItem i_CurrentMenuItem)
         {
-            Console.WriteLine("Enter your request: (1-{0} or press '0' to {1})", (i_CurrentMenuItem as InterfaceSubMenu).NumOfSubItems, (i_CurrentMenuItem as InterfaceSubMenu).getLastMenuOption());
+            Console.WriteLine("Enter your request: (1-{0} or press '0' to {1})", (i_CurrentMenuItem as InterfaceSubMenu).SubMenu.Count, (i_CurrentMenuItem as InterfaceSubMenu).getLastMenuOption());
             if (int.TryParse(Console.ReadLine(), out int userInput))
             {
                 if (!isUserInputInRange(userInput, i_CurrentMenuItem))
                 {
-                    throw new ValueOutOfRangeException(0,2);
+                    throw new ValueOutOfRangeException(0, (i_CurrentMenuItem as InterfaceSubMenu).SubMenu.Count);
                 }
 
                 if (userInput == k_GoBackOrExit)
