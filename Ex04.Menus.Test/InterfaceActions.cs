@@ -53,10 +53,11 @@ namespace Ex04.Menus.Test
         {
             public void ActivateUserChoice()
             {
-                Console.WriteLine(String.Format("Current Time: {0}", DateTime.Now.ToShortTimeString()));
+                Console.WriteLine(String.Format("Current Time: {0}", DateTime.Now.ToLongTimeString()));
                 WaitForUserToPressKeyToContinue.PromptToPressKey();
             }
         }
+
         public static class WaitForUserToPressKeyToContinue
         {
             public static void PromptToPressKey()
