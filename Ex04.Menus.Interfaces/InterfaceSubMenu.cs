@@ -59,25 +59,14 @@ namespace Ex04.Menus.Interfaces
             Console.Write(Environment.NewLine);
         }
 
-        public InterfaceMenuItem getMenuItemByIndex(int index)
+        public InterfaceMenuItem GetMenuItemByIndex(int i_Index)
         {
-            return r_SubMenu[index - 1];
+            return r_SubMenu[i_Index - 1];
         }
 
         public string GetLastMenuOption()
-        {
-            string lastMenuOption;
-
-            if (IsMainMenu())
-            {
-                lastMenuOption = "Exit";
-            }
-            else
-            {
-                lastMenuOption = "Back";
-            }
-            
-            return lastMenuOption;
+        {            
+            return (IsMainMenu() ? "Exit" : "Back");
         }
     }
 }

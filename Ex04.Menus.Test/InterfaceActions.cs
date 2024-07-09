@@ -14,7 +14,7 @@ namespace Ex04.Menus.Test
             public void ActivateUserChoice()
             {
                 EventsActions.ShowVersion();
-                WaitForUserToPressKeyToContinue.PromptToPressKey();
+                PromptToPressKey();
             }
         }
 
@@ -23,7 +23,7 @@ namespace Ex04.Menus.Test
             public void ActivateUserChoice()
             {
                 EventsActions.CountCapitals();
-                WaitForUserToPressKeyToContinue.PromptToPressKey();
+                PromptToPressKey();
             }
         }
 
@@ -32,7 +32,7 @@ namespace Ex04.Menus.Test
             public void ActivateUserChoice()
             {
                 EventsActions.ShowDate();
-                WaitForUserToPressKeyToContinue.PromptToPressKey();
+                PromptToPressKey();
             }
         }
 
@@ -41,17 +41,14 @@ namespace Ex04.Menus.Test
             public void ActivateUserChoice()
             {
                 EventsActions.ShowTime();
-                WaitForUserToPressKeyToContinue.PromptToPressKey();
+                PromptToPressKey();
             }
         }
 
-        public static class WaitForUserToPressKeyToContinue
+        public static void PromptToPressKey()
         {
-            public static void PromptToPressKey()
-            {
-                Console.WriteLine("Press any key to continue");
-                Console.ReadKey();
-            }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
         }
     }
 }

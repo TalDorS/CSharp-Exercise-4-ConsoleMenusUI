@@ -30,6 +30,7 @@ namespace Ex04.Menus.Interfaces
         public void Show()
         {
             InterfaceMenuItem currentMenuItem = m_MainMenu;
+
             while (currentMenuItem != null)
             {
                 currentMenuItem.MenuExecuteHandler();
@@ -94,7 +95,7 @@ namespace Ex04.Menus.Interfaces
         {
             if (i_CurrentMenuItem is InterfaceSubMenu)
             {
-                i_CurrentMenuItem = (i_CurrentMenuItem as InterfaceSubMenu).getMenuItemByIndex(i_UserInput);
+                i_CurrentMenuItem = (i_CurrentMenuItem as InterfaceSubMenu).GetMenuItemByIndex(i_UserInput);
             }
         }
 

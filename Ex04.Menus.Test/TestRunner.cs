@@ -17,6 +17,7 @@ namespace Ex04.Menus.Test
         {
             InterfaceMainMenu interfaceMainMenu = initializeAndGetInterfaceMainMenu();
             EventsMainMenu eventsMainMenu = initializeAndGetEventsMainMenu();
+
             interfaceMainMenu.Show();
             eventsMainMenu.Show();
         }

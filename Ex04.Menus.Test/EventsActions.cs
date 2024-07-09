@@ -28,12 +28,12 @@ namespace Ex04.Menus.Test
                 }
             }
 
-            Console.WriteLine(String.Format("There are {0} capital letters in your sentence.", capitalCounter));
+            Console.WriteLine(string.Format("There are {0} capital letters in your sentence.", capitalCounter));
         }
 
         public static void ShowTime()
         {
-            Console.WriteLine(String.Format("Current Time: {0}", DateTime.Now.ToLongTimeString()));
+            Console.WriteLine(string.Format("Current Time: {0}", DateTime.Now.ToShortTimeString()));
         }
 
         public static void ShowDate()
