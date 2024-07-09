@@ -46,6 +46,6 @@ namespace Ex04.Menus.Interfaces
             return this is InterfaceActionMenuItem;
         }
 
-        internal abstract void ExecuteOnClick();
+        internal abstract void HandleMenuExecute();
     }
 }

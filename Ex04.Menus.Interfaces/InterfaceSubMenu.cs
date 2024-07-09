@@ -30,7 +30,7 @@ namespace Ex04.Menus.Interfaces
             r_SubMenu.Add(i_MenuItem);
         }
 
-        internal override void ExecuteOnClick()
+        internal override void HandleMenuExecute()
         {
             Console.Clear();
             showSubMenu();
