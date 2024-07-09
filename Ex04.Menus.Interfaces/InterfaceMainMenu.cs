@@ -32,7 +32,7 @@ namespace Ex04.Menus.Interfaces
             InterfaceMenuItem currentMenuItem = m_MainMenu;
             while (currentMenuItem != null)
             {
-                currentMenuItem.HandleMenuExecute();
+                currentMenuItem.MenuExecuteHandler();
                 goBackIfAction(ref currentMenuItem);
                 try
                 {
@@ -55,7 +55,7 @@ namespace Ex04.Menus.Interfaces
             if (i_CurrentMenuItem.IsActionMenuItem())
             {
                 goBack(ref i_CurrentMenuItem);
-                i_CurrentMenuItem.HandleMenuExecute();
+                i_CurrentMenuItem.MenuExecuteHandler();
             }
         }
 

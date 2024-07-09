@@ -15,7 +15,7 @@ namespace Ex04.Menus.Interfaces
             r_Observer = i_MenuObserver;
         }
 
-        internal override void HandleMenuExecute()
+        internal override void MenuExecuteHandler()
         {
             if (r_Observer != null)
             {
