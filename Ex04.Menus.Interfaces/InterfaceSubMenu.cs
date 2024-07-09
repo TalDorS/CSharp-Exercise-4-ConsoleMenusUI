@@ -36,25 +36,23 @@ namespace Ex04.Menus.Interfaces
             ShowSubMenu();
         }
 
-        private int showSubMenuItem(int i_Index)
+        private void showSubMenuItem()
         {
-            foreach (InterfaceMenuItem item in r_SubMenu)
+            int index = 0;
+            foreach (InterfaceMenuItem MenuItem in r_SubMenu)
             {
-                i_Index++;
-                Console.WriteLine("{0} -> {1}", i_Index, item.Title);
+                index++;
+                Console.WriteLine("{0} -> {1}", index, MenuItem.Title);
             }
-
-            return i_Index;
         }
 
         public void ShowSubMenu()
         {
             string lastMenuOption = GetLastMenuOption();
-            int menuOptionIndex = 0;
 
             Console.WriteLine(string.Format(@"**{0}**
 -----------------------", Title));
-            menuOptionIndex = showSubMenuItem(menuOptionIndex);
+            showSubMenuItem();
             Console.WriteLine("0 -> {0}", lastMenuOption);
             Console.Write(Environment.NewLine);
         }

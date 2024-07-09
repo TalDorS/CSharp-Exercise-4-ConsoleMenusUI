@@ -44,45 +44,45 @@ namespace Ex04.Menus.Interfaces
                     Console.WriteLine(valueOutOfRange.Message);
                     promptUserToPressKeyToContinue();
                 }
-                catch (FormatException fromatException)
+                catch (FormatException formatException)
                 {
-                    Console.WriteLine(fromatException.Message);
+                    Console.WriteLine(formatException.Message);
                     promptUserToPressKeyToContinue();
                 }
             }
         }
-        private void goBackIfAction(ref InterfaceMenuItem i_CurrentMenuItem)
+        private void goBackIfAction(ref InterfaceMenuItem io_CurrentMenuItem)
         {
-            if (i_CurrentMenuItem.IsActionMenuItem())
+            if (io_CurrentMenuItem.IsActionMenuItem())
             {
-                goBack(ref i_CurrentMenuItem);
-                i_CurrentMenuItem.MenuExecuteHandler();
+                goBack(ref io_CurrentMenuItem);
+                io_CurrentMenuItem.MenuExecuteHandler();
             }
         }
 
-        private void goBack(ref InterfaceMenuItem i_CurrentMenuItem)
+        private void goBack(ref InterfaceMenuItem io_CurrentMenuItem)
         {
-            i_CurrentMenuItem = i_CurrentMenuItem.Parent;
+            io_CurrentMenuItem = io_CurrentMenuItem.Parent;
         }
 
-        private void updateMenuItemsFromUser(ref InterfaceMenuItem i_CurrentMenuItem)
+        private void updateMenuItemsFromUser(ref InterfaceMenuItem io_CurrentMenuItem)
         {
-            Console.WriteLine("Enter your request: (1-{0} or press '0' to {1})", (i_CurrentMenuItem as InterfaceSubMenu).SubMenu.Count, (i_CurrentMenuItem as InterfaceSubMenu).GetLastMenuOption());
+            Console.WriteLine("Enter your request: (1-{0} or press '0' to {1})", (io_CurrentMenuItem as InterfaceSubMenu).SubMenu.Count, (io_CurrentMenuItem as InterfaceSubMenu).GetLastMenuOption());
             if (int.TryParse(Console.ReadLine(), out int userInput))
             {
-                if (!isUserInputInRange(userInput, i_CurrentMenuItem))
+                if (!isUserInputInRange(userInput, io_CurrentMenuItem))
                 {
-                    throw new ValueOutOfRangeException(0, (i_CurrentMenuItem as InterfaceSubMenu).SubMenu.Count);
+                    throw new ValueOutOfRangeException(0, (io_CurrentMenuItem as InterfaceSubMenu).SubMenu.Count);
                 }
 
                 if (userInput == k_GoBackOrExit)
                 {
-                    goBack(ref i_CurrentMenuItem);
+                    goBack(ref io_CurrentMenuItem);
                 }
                 else
                 {
                     Console.Clear();
-                    goToUserChoice(ref i_CurrentMenuItem, userInput);
+                    goToUserChoice(ref io_CurrentMenuItem, userInput);
                 }
             }
             else
@@ -91,11 +91,11 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        private void goToUserChoice(ref InterfaceMenuItem i_CurrentMenuItem, int i_UserInput)
+        private void goToUserChoice(ref InterfaceMenuItem io_CurrentMenuItem, int i_UserInput)
         {
-            if (i_CurrentMenuItem is InterfaceSubMenu)
+            if (io_CurrentMenuItem is InterfaceSubMenu)
             {
-                i_CurrentMenuItem = (i_CurrentMenuItem as InterfaceSubMenu).GetMenuItemByIndex(i_UserInput);
+                io_CurrentMenuItem = (io_CurrentMenuItem as InterfaceSubMenu).GetMenuItemByIndex(i_UserInput);
             }
         }
 
