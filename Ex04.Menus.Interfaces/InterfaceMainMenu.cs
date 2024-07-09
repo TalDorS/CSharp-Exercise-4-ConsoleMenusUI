@@ -67,7 +67,7 @@ namespace Ex04.Menus.Interfaces
 
         private void updateMenuItemsFromUser(ref InterfaceMenuItem io_CurrentMenuItem)
         {
-            Console.WriteLine("Enter your request: (1-{0} or press '0' to {1})", (io_CurrentMenuItem as InterfaceSubMenu).SubMenu.Count, (io_CurrentMenuItem as InterfaceSubMenu).GetLastMenuOption());
+            Console.WriteLine("Enter your request: (1 to {0} or press '0' to {1})", (io_CurrentMenuItem as InterfaceSubMenu).SubMenu.Count, (io_CurrentMenuItem as InterfaceSubMenu).GetLastMenuOption());
             if (int.TryParse(Console.ReadLine(), out int userInput))
             {
                 if (!isUserInputInRange(userInput, io_CurrentMenuItem))

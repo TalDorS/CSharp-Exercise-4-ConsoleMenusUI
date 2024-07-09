@@ -39,6 +39,7 @@ namespace Ex04.Menus.Interfaces
         private void showSubMenuItem()
         {
             int index = 0;
+
             foreach (InterfaceMenuItem MenuItem in r_SubMenu)
             {
                 index++;
@@ -53,8 +54,8 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine(string.Format(@"**{0}**
 -----------------------", Title));
             showSubMenuItem();
-            Console.WriteLine("0 -> {0}", lastMenuOption);
-            Console.Write(Environment.NewLine);
+            Console.WriteLine(string.Format(@"0 -> {0}
+-----------------------", lastMenuOption));
         }
 
         public InterfaceMenuItem GetMenuItemByIndex(int i_Index)

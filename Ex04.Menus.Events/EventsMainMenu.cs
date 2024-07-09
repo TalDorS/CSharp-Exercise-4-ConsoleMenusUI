@@ -31,9 +31,9 @@ namespace Ex04.Menus.Events
                 {
                     getMenuItemFromUser();
                 }
-                catch (Exception e)
+                catch (Exception exception)
                 {
-                    Console.WriteLine(string.Format("{0}", e.Message));
+                    Console.WriteLine(string.Format("{0}", exception.Message));
                     Console.WriteLine("Press any key to continue");
                     Console.ReadLine();
                 }
@@ -62,7 +62,7 @@ namespace Ex04.Menus.Events
             }
             else
             {
-                if(userInput >= 0 && (userInput - 1) < m_CurrentMenuItem.SubMenuItems.Count)
+                if(userInput >= 0 && userInput <= m_CurrentMenuItem.SubMenuItems.Count)
                 {
                     nextItem = m_CurrentMenuItem.SubMenuItems[userInput - 1];
                     if (nextItem.SubMenuItems.Count != 0)
